@@ -1,0 +1,43 @@
+{
+  "name": "Redmine",
+  "displayName": "Redmine",
+  "description": "Sent information about task in redmine by url",
+  "key": "com.redmine.informer",
+  "vendor": {
+        "name": "Ilya",
+        "url": "http://hipchat-redmine-link.company.com"
+    },
+	"baseUrl": "http://hipchat-redmine-link.company.com",
+	"authentication": {
+	    "type": "jwt"
+	},
+  "links": {
+    "api": "https://api.hipchat.com/v2",
+    "homepage": "http://hipchat-redmine-link.company.com",
+    "self": "http://hipchat-redmine-link.company.com/capabilities/capabilities.json"
+  },
+  "capabilities": {
+    "hipchatApiConsumer": {
+      "fromName": "Redmine",
+      "scopes": [
+        "send_notification"
+      ]
+    },
+    "oauth2Provider": {
+            "authorizationUrl": "https://www.hipchat.com/users/authorize",
+            "tokenUrl": "https://api.hipchat.com/v2/oauth/token"
+    },
+    "installable": {
+      "allowGlobal": true,
+      "allowRoom": true
+    },
+    "webhook": [
+      {
+        "url": "http://hipchat-redmine-link.company.com/",
+        "pattern": "^(http:\\/\\/)[rR][eE][dD][mM][iI][nN][eE][.][vV][iI][gG][rR][oO][uU][pP][.][rR][uU][/][iI][sS]{2}[uU][eE][sS][/]([0-9])+((\\d)|(\\/.*))$",
+        "event": "room_message",
+        "name": "Redmine"
+      }
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+app:
+    container_name: hipchat_redmine_link
+    build: "./docker"
+    net: host
+    restart: "unless-stopped"
+    volumes:
+        - ".:/var/www"
+    working_dir: "/var/www"
+    ports:
+            - "80:80"
